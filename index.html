@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Illustration Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <div class="nav-item" id="btn-2d">Illustration/Design</div>
+    <div class="nav-item" id="btn-3d">3D/Motion</div>
+  </div>
+
+  <div class="site-logo">
+    <img id="logo-img" src="./img/logotest.png" alt="Logo" />
+    <a id="about-link">
+      <img id="about-img" src="./img/abouttest.png" alt="About" />
+    </a>
+  </div>
+
+  <div id="about-popup" class="popup-overlay">
+    <div class="popup-content">
+      <span id="close-popup">&times;</span>
+      <h2>Sitong.Liu</h2>
+      <div class="selfie-container">
+        <img src="./img/selfie.png" alt="Selfie" class="selfie-img">
+        <p class="selfie-caption">Sitong Liu, Illustrator & Visual Designer</p>
+      </div>
+      
+      
+      <div class="introtext">
+        <h3>About</h3>
+        <p>Sitong is an illustrator inspired by the intersection of myth and reality. Her work reimagines mythical creatures as symbols of identity, resilience, and transformation, creating modern narratives that invite viewers to find wonder in the everyday. In addition to traditional illustration, she uses 3D to compose narrative scenes and build interactive worlds, expanding the ways stories can be experienced. Sitong studied Illustration at the Rhode Island School of Design (RISD), where she built a strong foundation in visual storytelling and conceptual thinking. Her practice blends technical skill with a love of narrative, encouraging audiences to rediscover magic in daily life.</p>
+        <h3>Education</h3>
+        <p>Rhode Island School of Design, Illustration 2025, Concentrate in Computer Technology and Culture</p>
+        <h3>Award</h3>
+        <ul>
+          <li>GoodsHiii Illustration Finalist2023</li>
+          <li>Ijungle illustration merit award 2023Photoshop</li>
+        </ul>
+      </div>
+      <div class="popuplink">
+        <a href="#"><img src="./img/ins.png" alt="Instagram" /></a>
+        <a href="#"><img src="./img/ins.png" alt="Instagram" /></a>
+        <a href="#"><img src="./img/ins.png" alt="Instagram" /></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pages">
+    <section class="page" id="page-2d">
+      <div class="content">
+        <aside class="side-nav">
+          <ul>
+            <li onclick="filterGallery('2d', 'illustration')">Illustration</li>
+            <li onclick="filterGallery('2d', 'childrenbook')">Childrenbook</li>
+            <li onclick="filterGallery('2d', 'design')">Design</li>
+            <li onclick="filterGallery('2d', 'comics')">Comics</li>
+          </ul>
+        </aside>
+        <main class="gallery-area">
+          <h1>2D Works</h1>
+          <div class="gallery" id="gallery-2d">
+            <img src="./img/abouttest.png" alt="Illustration" data-category="illustration" />
+            <img src="your-2d-image2.jpg" alt="Childrenbook" data-category="childrenbook" />
+            <img src="your-2d-image3.jpg" alt="Design" data-category="design" />
+            <img src="your-2d-image4.jpg" alt="Comics" data-category="comics" />
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <section class="page" id="page-3d">
+      <div class="content">
+        <aside class="side-nav">
+          <ul>
+            <li onclick="filterGallery('3d', 'animations')">Animations</li>
+            <li onclick="filterGallery('3d', 'games')">Games</li>
+            <li onclick="filterGallery('3d', 'vrar')">VR/AR</li>
+            <li onclick="filterGallery('3d', 'stills')">Stills</li>
+          </ul>
+        </aside>
+        <main class="gallery-area">
+          <h1>3D Works</h1>
+          <div class="gallery" id="gallery-3d">
+            <img src="your-3d-image1.jpg" alt="Animation" data-category="animations" />
+            <img src="your-3d-image2.jpg" alt="Games" data-category="games" />
+            <img src="your-3d-image3.jpg" alt="VR/AR" data-category="vrar" />
+            <img src="your-3d-image4.jpg" alt="Stills" data-category="stills" />
+          </div>
+        </main>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
