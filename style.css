@@ -1,6 +1,13 @@
 /* Reset and fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Orbitron:wght@600&display=swap');
 
+.red-hat-display{
+  font-family: "Red Hat Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300px;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,8 +17,10 @@
 body, html {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  font-family: 'Arial', sans-serif;
+  /* overflow: auto; */
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: 'Red Hat Display', sans-serif;
 }
 
 /* Top nav */
@@ -22,12 +31,18 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 0 35px;
   z-index: 1000;
 }
 
 .nav-item {
+  
   font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.3); /* semi-transparent color */
+  backdrop-filter: blur(10px); /* blur anything behind */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 20px;
+  padding: 10px;
   font-weight: bold;
   cursor: pointer;
   transition: color 0.3s, transform 0.3s;
@@ -41,10 +56,12 @@ body, html {
 /* Logo and About */
 .site-logo {
   display: flex;
+  background-color: rgb(255, 255, 255);
   align-items: center;
-  height: 200px;
-  margin-top: -10px;
-  margin-bottom: -30px;
+  height: 300px;
+  margin-top: -20px;
+  margin-left: 10px;
+  margin-bottom: -80px;
   flex-grow: 1;
 }
 
@@ -59,13 +76,15 @@ body, html {
 
 #about-link {
   margin-left: auto;
+margin-right: 50px;
+margin-bottom: 40px;
   display: flex;
   align-items: center;
   text-decoration: none;
 }
 
 #about-img {
-  height: 160px;
+  height: 180px;
   margin-right: 100px;
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -129,6 +148,7 @@ body, html {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  width: 65%;
   padding: 20px;
   gap: 5px;
 }
@@ -160,6 +180,7 @@ body, html {
   width: 200%;
   height: 100%;
   transition: transform 0.8s ease-in-out;
+  overflow: hidden; /* ← prevents any accidental scrolling */
 }
 
 .page {
@@ -180,6 +201,7 @@ body, html {
   background-color: #ffffff;
   color: #222;
   padding: 30px 20px;
+  margin-left: 20px;
   position: sticky;
   top: 100px;
   align-self: flex-start;
@@ -202,8 +224,8 @@ body, html {
 
 .gallery-area {
   flex: 1;
-  padding: 100px 40px 40px 40px;
-  overflow-y: auto;
+  padding: 50px 40px 40px 40px;
+  overflow: visible; 
   background: #ffffff;
   display: flex;
   flex-direction: column;
@@ -214,25 +236,40 @@ body, html {
 }
 
 h1 {
-  margin-bottom: 20px;
+  margin-top: -10px;
   font-size: 36px;
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  column-count: 4;
+  column-gap: 20px;
+  padding: 20px; /* optional: padding around the gallery */
 }
 
 .gallery img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  margin-bottom: 20px; /* space between items in each column */
+  display: block;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s;
+  break-inside: avoid; /* prevents images from splitting awkwardly */
 }
 
 .gallery img:hover {
   transform: scale(1.05);
+}
+
+.footer {
+  background-color: #ffffff;  /* Dark background for footer */
+  color: #4d4d4d;             /* White text color */
+  text-align: center;      /* Center align text */
+  padding: 20px;           /* Padding for spacing */
+  position: relative;      /* Position relative for layout */
+  bottom: 0;               /* Stick to the bottom of the page */
+  width: 100%;             /* Full width */
+}
+
+.footer p {
+  margin: 5px 0;           /* Add space between paragraphs */
+  font-size: 14px;         /* Adjust text size */
 }

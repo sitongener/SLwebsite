@@ -27,6 +27,20 @@ btn3d.addEventListener('click', () => {
   resetGallery('3d');
 });
 
+// Prevent arrow key or touchpad horizontal scroll
+window.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+window.addEventListener('wheel', function(e) {
+  if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+
 // Fade swap helper
 function fadeSwapImage(imgElement, newSrc) {
   imgElement.style.opacity = '0';
