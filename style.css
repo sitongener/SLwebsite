@@ -1,12 +1,15 @@
 /* Reset and fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Orbitron:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Playfair+Display&family=Quicksand:wght@300;400&family=Sedan+SC&display=swap');
 
-.red-hat-display{
-  font-family: "Red Hat Display", sans-serif;
+/*p font*/
+.quicksand {
+  font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 300px;
+  font-weight: 300;
   font-style: normal;
 }
+
+
 
 * {
   margin: 0;
@@ -20,7 +23,80 @@ body, html {
   /* overflow: auto; */
   overflow-y: auto;
   overflow-x: hidden;
-  font-family: 'Red Hat Display', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Hero Slideshow Container */
+.hero-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-slideshow,
+#hero-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+/* Slides (stacked and fade in/out) */
+.hero-slideshow .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/*herobutton*/
+.scroll-btn {
+  position: absolute;
+  bottom: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  color: #ff0303;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(80, 203, 255, 0.9);
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* Initial Main Content Style */
+.main-content {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  padding-top: 6rem;
+}
+
+/* Fade-in effect when scrolled into view */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Top nav */
@@ -34,9 +110,15 @@ body, html {
   padding: 0 35px;
   z-index: 1000;
 }
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* Above slideshow */
+}
 
 .nav-item {
-  
   font-size: 24px;
   background-color: rgba(255, 255, 255, 0.3); /* semi-transparent color */
   backdrop-filter: blur(10px); /* blur anything behind */
@@ -49,14 +131,14 @@ body, html {
 }
 
 .nav-item:hover {
-  color: #ff7f50;
+  color: #50cbff;
   transform: scale(1.2);
 }
 
 /* Logo and About */
 .site-logo {
   display: flex;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
   align-items: center;
   height: 300px;
   margin-top: -20px;
@@ -111,12 +193,16 @@ margin-bottom: 40px;
 .popup-content {
   background: #fff;
   padding: 60px;
-  border-radius: 35px;
+  border-radius: 10px;
   max-width: 1000px;
   width: 95%;
   max-height: 80%;
   overflow-y: auto;
   position: relative;
+
+  /* blurred, soft glowing border */
+  box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.3);
+  /* you can adjust the color and spread (30px blur, 15px spread) */
 }
 
 .popup-content h2 {
@@ -193,7 +279,10 @@ margin-bottom: 40px;
 
 .content {
   display: flex;
-  height: 100%;
+  align-items: center; /* vertically center children */
+  padding: 40px; /* reduce or remove excessive top padding */
+  gap: 40px;
+  height: 100vh; /* or a fixed height to see centering effect */
 }
 
 .side-nav {
@@ -201,10 +290,12 @@ margin-bottom: 40px;
   background-color: #ffffff;
   color: #222;
   padding: 30px 20px;
-  margin-left: 20px;
-  position: sticky;
-  top: 100px;
-  align-self: flex-start;
+
+  /* Remove sticky */
+  /* position: sticky;
+  top: 120px; */
+
+  flex-shrink: 0;
 }
 
 .side-nav ul {
@@ -224,15 +315,14 @@ margin-bottom: 40px;
 
 .gallery-area {
   flex: 1;
-  padding: 50px 40px 40px 40px;
-  overflow: visible; 
   background: #ffffff;
   display: flex;
   flex-direction: column;
+  padding: 50px 0 0 0;
 }
 
 #page-3d .gallery-area {
-  background: #e0e0ff;
+  background: #fefefe;
 }
 
 h1 {

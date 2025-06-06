@@ -5,23 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Illustration Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .scroll-button, .scroll-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .hero-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-slideshow, #hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+
+    .slide:first-child {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
+  <div class="hero-container">
+    <!-- Slideshow for 2D -->
+    <div class="hero-slideshow" id="hero-slideshow">
+      <img class="slide" src="img/ins.png" />
+      <img class="slide" src="img/selfie.png" />
+      <img class="slide" src="img/logotest.png" />
+    </div>
+    <button id="scroll-to-gallery" class="scroll-btn">Jump to View Gallery ↓</button>
+
+    <!-- Video for 3D -->
+    <video id="hero-video" autoplay muted loop playsinline style="display: none;">
+      <source src="video/aero_recording.mov" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="scroll-to-gallery-3d" class="scroll-btn" style="display: none;">↓ View Gallery</button>
+  </div>
+
+  <div class="main-content fade-in-on-scroll">
+    <!-- Your existing sidebar, top-bar, gallery, etc. -->
+  </div>
+
   <div class="top-bar">
     <div class="nav-item" id="btn-2d">Illustration/Design</div>
     <div class="nav-item" id="btn-3d">3D/Motion</div>
   </div>
 
-  <div class="site-logo">
-    <img id="logo-img" src="./img/logotest.png" alt="Logo" />
-    <a id="about-link">
-      <img id="about-img" src="./img/abouttest.png" alt="About" />
-    </a>
+  <div class="fixed-header">
+    <div class="site-logo">
+      <img id="logo-img" src="./img/logotest.png" alt="Logo" />
+      <a id="about-link">
+        <img id="about-img" src="./img/abouttest.png" alt="About" />
+      </a>
+    </div>
   </div>
 
+  <!-- About Popup -->
   <div id="about-popup" class="popup-overlay">
     <div class="popup-content">
       <span id="close-popup">&times;</span>
@@ -30,21 +103,16 @@
         <img src="./img/selfie.png" alt="Selfie" class="selfie-img">
         <p class="selfie-caption">Sitong Liu, Illustrator & Visual Designer</p>
       </div>
-      
-      
       <div class="introtext">
         <h3>About</h3>
-        <p>Sitong is an illustrator/Visual Designer based in U.S. She loves to work with mythical creatures and dreamlike landscape for people who still believes in them. In addition to 2D media, she plays with 3D and augmented reality, chanlleging the ways stories can be told.
-        </p>
-        <p>Grow up in China,she is now lived and based in NewYork. Constantly looking for fun collaborations and projects!
-
-        </p>
+        <p>Sitong is an illustrator/Visual Designer based in U.S. She loves to work with mythical creatures and dreamlike landscape for people who still believes in them. In addition to 2D media, she plays with 3D and augmented reality, challenging the ways stories can be told.</p>
+        <p>Grew up in China, now based in New York. Constantly looking for fun collaborations and projects!</p>
         <h3>Education</h3>
         <p>Rhode Island School of Design, Illustration 2025, Concentrated in Computer Technology and Culture</p>
-        <h3>Award</h3>
+        <h3>Awards</h3>
         <ul>
-          <li>GoodsHiii Illustration Finalist2023</li>
-          <li>Ijungle illustration merit award 2023Photoshop</li>
+          <li>GoodsHiii Illustration Finalist 2023</li>
+          <li>iJungle Illustration Merit Award 2023</li>
         </ul>
       </div>
       <div class="popuplink">
@@ -55,7 +123,9 @@
     </div>
   </div>
 
+  <!-- Main Pages -->
   <div class="pages">
+    <!-- 2D Section -->
     <section class="page" id="page-2d">
       <div class="content">
         <aside class="side-nav">
@@ -66,8 +136,7 @@
             <li onclick="filterGallery('2d', 'comics')">Comics</li>
           </ul>
         </aside>
-        <main class="gallery-area">
-          <!-- <h1>2D Works</h1> -->
+        <main class="gallery-area" id="gallery-2d-section">
           <div class="gallery" id="gallery-2d">
             <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746050322/starnight_rvkm2c.jpg" alt="Illustration" data-category="illustration" />
             <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746120976/%E4%BD%9B%E7%84%B0_tvktoo.jpg" alt="Childrenbook" data-category="illustration" />
@@ -79,11 +148,13 @@
             <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746122673/%E6%9C%AA%E5%91%BD%E5%90%8D%E4%BD%9C%E5%93%81_17_qmftz4.jpg" alt="Comics" data-category="comics" />
             <img src="your-2d-image4.jpg" alt="Comics" data-category="comics" />
             <img src="your-2d-image4.jpg" alt="Comics" data-category="comics" />
+            <img src="your-2d-image1.jpg" alt="Comics" data-category="comics" />
           </div>
         </main>
       </div>
     </section>
 
+    <!-- 3D Section -->
     <section class="page" id="page-3d">
       <div class="content">
         <aside class="side-nav">
@@ -94,24 +165,37 @@
             <li onclick="filterGallery('3d', 'stills')">Stills</li>
           </ul>
         </aside>
-        <main class="gallery-area">
-          <!-- <h1>3D Works</h1> -->
+        <main class="gallery-area" id="gallery-3d-section">
           <div class="gallery" id="gallery-3d">
             <img src="your-3d-image1.jpg" alt="Animation" data-category="animations" />
             <img src="your-3d-image2.jpg" alt="Games" data-category="games" />
             <img src="your-3d-image3.jpg" alt="VR/AR" data-category="vrar" />
             <img src="your-3d-image4.jpg" alt="Stills" data-category="stills" />
+            <img src="your-3d-image1.jpg" alt="Stills" data-category="stills" />
           </div>
         </main>
       </div>
     </section>
   </div>
+
   <section class="footer">
     <p>&copy; Sitong Liu</p>
     <p>Contact: sitong.liuener@gmail.com</p>
   </section>
-  
 
+  <!-- JavaScript -->
   <script src="script.js"></script>
+  <script>
+    // Smooth scroll buttons
+    document.getElementById('scroll-to-gallery').addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('gallery-2d-section').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.getElementById('scroll-to-gallery-3d').addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('gallery-3d-section').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
