@@ -37,9 +37,11 @@ btn2d.addEventListener('click', () => {
   currentPage = '2d';
   resetGallery('2d');
 
-  // Show slideshow, hide video
+  // Show slideshow, hide Cloudinary video
   heroSlideshow.style.display = 'block';
-  heroVideo.style.display = 'none';
+  document.getElementById('cloudinary-video-wrapper').style.display = 'none';
+
+  document.body.classList.remove('show-3d');
 });
 
 // Navigate to 3D
@@ -50,9 +52,11 @@ btn3d.addEventListener('click', () => {
   currentPage = '3d';
   resetGallery('3d');
 
-  // Show video, hide slideshow
+  // Hide slideshow, show Cloudinary video
   heroSlideshow.style.display = 'none';
-  heroVideo.style.display = 'block';
+  document.getElementById('cloudinary-video-wrapper').style.display = 'block';
+
+  document.body.classList.add('show-3d');
 });
 
 // Prevent arrow key or touchpad horizontal scroll
@@ -80,6 +84,21 @@ document.addEventListener('DOMContentLoaded', () => {
     current = (current + 1) % slides.length;
     slides[current].style.opacity = 1;
   }, 4000); // Change slide every 4 seconds
+
+  //3dpage video
+  const page3D = document.querySelector('#page-3d');
+const cloudinaryWrapper = document.querySelector('#cloudinary-video-wrapper');
+
+function show3DPage() {
+  page3D.style.display = 'block';
+  cloudinaryWrapper.style.display = 'block';  // Show video
+}
+
+function hide3DPage() {
+  page3D.style.display = 'none';
+  cloudinaryWrapper.style.display = 'none';  // Hide video
+}
+
 
   // Fade-in on scroll logic
   const fadeTargets = document.querySelectorAll('.fade-in-on-scroll');

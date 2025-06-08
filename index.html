@@ -9,6 +9,8 @@
   
 </head>
 <body>
+  
+<div class="main-content">
   <div class="hero-container">
     <!-- Slideshow for 2D -->
     <div class="hero-slideshow" id="hero-slideshow">
@@ -18,18 +20,18 @@
     </div>
     <button id="scroll-to-gallery" class="scroll-btn">Jump to View Gallery ↓</button>
 
-    <!-- Video for 3D -->
-    <video id="hero-video" autoplay muted loop playsinline style="display: none;">
-      <source src="video/aero_recording.mov" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <!-- Cloudinary Video for 3D -->
+    <div class="video-wrapper" id="cloudinary-video-wrapper">
+      <iframe
+        src="https://player.cloudinary.com/embed/?cloud_name=dka6d9mfk&public_id=egg_fkoefa&profile=cld-default&controls=false&autoplay=true&muted=true&loop=true"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+        frameborder="0"
+        style="width: 100%; height: 100%; object-fit: cover; border: none;">
+      </iframe>
+    </div>
     <button id="scroll-to-gallery-3d" class="scroll-btn" style="display: none;">↓ View Gallery</button>
   </div>
-
-  <div class="main-content fade-in-on-scroll">
-    <!-- Your existing sidebar, top-bar, gallery, etc. -->
-  </div>
-
   <div class="top-bar">
     <div class="nav-item" id="btn-2d">Illustration/Design</div>
     <div class="nav-item" id="btn-3d">3D/Motion</div>
@@ -43,6 +45,7 @@
       </a>
     </div>
   </div>
+
 
   <!-- About Popup -->
   <div id="about-popup" class="popup-overlay">
@@ -75,17 +78,18 @@
 
   <!-- Main Pages -->
   <div class="pages">
+    
     <!-- 2D Section -->
     <section class="page" id="page-2d">
-      <div class="content">
-        <aside class="side-nav">
+      <div class="side-nav" id="side-nav-2d">
           <ul>
             <li onclick="filterGallery('2d', 'illustration')">Illustration</li>
             <li onclick="filterGallery('2d', 'childrenbook')">Childrenbook</li>
             <li onclick="filterGallery('2d', 'design')">Design</li>
             <li onclick="filterGallery('2d', 'comics')">Comics</li>
           </ul>
-        </aside>
+        </div>
+      <div class="content">
         <main class="gallery-area" id="gallery-2d-section">
           <div class="gallery" id="gallery-2d">
             <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746050322/starnight_rvkm2c.jpg" alt="Illustration" data-category="illustration" />
@@ -106,15 +110,15 @@
 
     <!-- 3D Section -->
     <section class="page" id="page-3d">
-      <div class="content">
-        <aside class="side-nav">
+      <div class="side-nav" id="side-nav-3d">
           <ul>
             <li onclick="filterGallery('3d', 'animations')">Animations</li>
             <li onclick="filterGallery('3d', 'games')">Games</li>
             <li onclick="filterGallery('3d', 'vrar')">VR/AR</li>
             <li onclick="filterGallery('3d', 'stills')">Stills</li>
           </ul>
-        </aside>
+        </div>
+      <div class="content">
         <main class="gallery-area" id="gallery-3d-section">
           <div class="gallery" id="gallery-3d">
             <img src="your-3d-image1.jpg" alt="Animation" data-category="animations" />
@@ -133,19 +137,10 @@
     <p>Contact: sitong.liuener@gmail.com</p>
   </section>
 
+</div>
+
   <!-- JavaScript -->
   <script src="script.js"></script>
-  <script>
-    // Smooth scroll buttons
-    document.getElementById('scroll-to-gallery').addEventListener('click', (e) => {
-      e.stopPropagation();
-      document.getElementById('gallery-2d-section').scrollIntoView({ behavior: 'smooth' });
-    });
-
-    document.getElementById('scroll-to-gallery-3d').addEventListener('click', (e) => {
-      e.stopPropagation();
-      document.getElementById('gallery-3d-section').scrollIntoView({ behavior: 'smooth' });
-    });
-  </script>
+  
 </body>
 </html>

@@ -45,6 +45,23 @@ body, html {
   top: 0;
   left: 0;
 }
+.video-wrapper {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
 /* Slides (stacked and fade in/out) */
 .hero-slideshow .slide {
   position: absolute;
@@ -83,8 +100,8 @@ body, html {
 .main-content {
   position: relative;
   z-index: 1;
-  background-color: white;
-  padding-top: 6rem;
+  background-color: rgb(255, 255, 255);
+  
 }
 
 /* Fade-in effect when scrolled into view */
@@ -108,7 +125,7 @@ body, html {
   justify-content: space-between;
   align-items: center;
   padding: 0 35px;
-  z-index: 1000;
+  z-index: 100;
 }
 .fixed-header {
   position: fixed;
@@ -263,6 +280,7 @@ margin-bottom: 40px;
 /* Pages */
 .pages {
   display: flex;
+ 
   width: 200%;
   height: 100%;
   transition: transform 0.8s ease-in-out;
@@ -271,10 +289,10 @@ margin-bottom: 40px;
 
 .page {
   width: 50%;
-  height: 100%;
+  height: auto;  
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto; 
 }
 
 .content {
@@ -282,21 +300,32 @@ margin-bottom: 40px;
   align-items: center; /* vertically center children */
   padding: 40px; /* reduce or remove excessive top padding */
   gap: 40px;
-  height: 100vh; /* or a fixed height to see centering effect */
+  height: auto; /* or a fixed height to see centering effect */
 }
 
-.side-nav {
-  width: 180px;
-  background-color: #ffffff;
-  color: #222;
-  padding: 30px 20px;
-
-  /* Remove sticky */
-  /* position: sticky;
-  top: 120px; */
-
-  flex-shrink: 0;
+.sidenav {
+  position: fixed;
+  padding: 50px;
+  top: 600px; /* or whatever offset you need */
+  left: 0;
+  width: 200px;
+  z-index: 100;
+  transition: opacity 0.3s ease;
 }
+ /* #side-nav-2d{
+  position: fixed;
+  top: 600px;
+  padding-left:50px;
+  transition: opacity 0.3s ease;
+
+ }
+ #side-nav-3d{
+  position: fixed;
+  top: 600px;
+  padding-left:50px;
+  transition: opacity 0.3s ease;
+  
+ } */
 
 .side-nav ul {
   list-style: none;
@@ -314,11 +343,12 @@ margin-bottom: 40px;
 }
 
 .gallery-area {
-  flex: 1;
-  background: #ffffff;
-  display: flex;
-  flex-direction: column;
-  padding: 50px 0 0 0;
+  flex: 1 1 auto; /* default flex grow, shrink, basis */
+  background-color: #fff;
+  display: block; /* remove flex if unnecessary */
+  padding-top: 200px; /* can reduce if too large */
+  overflow: visible; /* ensure no clipping */
+  height: auto; /* do not fix height */
 }
 
 #page-3d .gallery-area {
@@ -331,9 +361,11 @@ h1 {
 }
 
 .gallery {
-  column-count: 4;
-  column-gap: 20px;
-  padding: 20px; /* optional: padding around the gallery */
+  column-count: 3;
+  column-gap: 30px;
+  padding-top: 220px;
+  margin-left: 200px;
+  padding: 10px 30px 30px 30px; /* reduce top padding */
 }
 
 .gallery img {
