@@ -168,6 +168,7 @@ logoImg.addEventListener('click', () => {
 
 // 🌟 NEW: Update side navigation content
 function updateSideNav(page) {
+ 
   if (!sideNav) return;
 
   if (page === '2d') {
@@ -176,6 +177,7 @@ function updateSideNav(page) {
       <a onclick="filterGallery('2d', 'editorial')">Editorial</a>
       <a onclick="filterGallery('2d', 'design')">Design</a>
       <a onclick="filterGallery('2d', 'books')">Books</a>
+
     `;
   } else if (page === '3d') {
     sideNav.innerHTML = `
@@ -184,5 +186,11 @@ function updateSideNav(page) {
       <a onclick="filterGallery('3d', 'game')">Game</a>
       <a onclick="filterGallery('3d', 'archive')">Archive</a>
     `;
+  }
+}
+function scrollToTop() {
+  const heroSection = document.getElementById('hero-section');
+  if (heroSection) {
+    heroSection.scrollIntoView({ behavior: 'smooth' });
   }
 }
