@@ -303,44 +303,34 @@ margin-bottom: 40px;
   height: auto; /* or a fixed height to see centering effect */
 }
 
-.sidenav {
+.side-nav {
   position: fixed;
-  padding: 50px;
-  top: 600px; /* or whatever offset you need */
-  left: 0;
-  width: 200px;
-  z-index: 100;
-  transition: opacity 0.3s ease;
+  bottom: 100px;
+  left: 30px;
+ 
+  color: red;
+  padding: 12px 16px;
+  border-radius: 12px;
+  z-index: 20;
+  font-size: 24px;
+  max-width: 200px;
+  user-select: none;
 }
- /* #side-nav-2d{
-  position: fixed;
-  top: 600px;
-  padding-left:50px;
-  transition: opacity 0.3s ease;
 
- }
- #side-nav-3d{
-  position: fixed;
-  top: 600px;
-  padding-left:50px;
-  transition: opacity 0.3s ease;
+.side-nav a {
+  display: block;
   
- } */
-
-.side-nav ul {
-  list-style: none;
-}
-
-.side-nav li {
-  margin-bottom: 20px;
-  font-size: 18px;
+  text-decoration: none;
+  margin: 6px 0;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: opacity 0.2s ease;
 }
 
-.side-nav li:hover {
-  color: #ff7f50;
+.side-nav a:hover {
+  opacity: 0.7;
 }
+
+
 
 .gallery-area {
   flex: 1 1 auto; /* default flex grow, shrink, basis */
