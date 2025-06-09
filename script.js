@@ -194,3 +194,72 @@ function scrollToTop() {
     heroSection.scrollIntoView({ behavior: 'smooth' });
   }
 }
+
+// Get detail view elements
+const detailView = document.getElementById('detail-view');
+const backToGalleryBtn = document.getElementById('back-to-gallery');
+
+const detailImage = document.getElementById('detail-image');
+const detailTitle = document.getElementById('detail-title');
+const detailMedia = document.getElementById('detail-media');
+const detailStatement = document.getElementById('detail-statement');
+const detailAdditional = document.getElementById('detail-additional-images');
+
+// Gallery containers
+const gallery2d = document.getElementById('gallery-2d-section');
+const gallery3d = document.getElementById('gallery-3d-section');
+
+// Function to open detail view with data
+function openDetailView(imgElement) {
+  // Hide galleries and other content
+  gallery2d.style.display = 'none';
+  gallery3d.style.display = 'none';
+  sideNav.style.display = 'none';
+
+  // Show detail view container
+  detailView.style.display = 'block';
+
+  // Fill in detail info dynamically
+  detailImage.src = imgElement.src;
+  detailImage.alt = imgElement.alt || 'Detail Image';
+
+  // You will want to store these as data attributes on the images:
+  detailTitle.textContent = imgElement.dataset.title || 'Title missing';
+  detailMedia.textContent = imgElement.dataset.media || '';
+  detailStatement.textContent = imgElement.dataset.statement || '';
+
+  // Clear additional images area for now
+  detailAdditional.innerHTML = '';
+
+  // If you have more detail images, you can add them here dynamically (optional)
+}
+
+// Attach click listeners to all gallery images
+function setupGalleryClickListeners(section) {
+  const gallery = document.getElementById(`gallery-${section}`);
+  const images = gallery.querySelectorAll('img');
+  images.forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => openDetailView(img));
+  });
+}
+
+// Back button click hides detail view and shows gallery again
+backToGalleryBtn.addEventListener('click', () => {
+  detailView.style.display = 'none';
+  sideNav.style.display = 'block';
+
+  if (currentPage === '2d') {
+    gallery2d.style.display = 'block';
+    gallery3d.style.display = 'none';
+  } else {
+    gallery3d.style.display = 'block';
+    gallery2d.style.display = 'none';
+  }
+});
+
+// Call setup functions on page load and after gallery resets
+document.addEventListener('DOMContentLoaded', () => {
+  setupGalleryClickListeners('2d');
+  setupGalleryClickListeners('3d');
+});

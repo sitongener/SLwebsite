@@ -373,6 +373,66 @@ h1 {
   transform: scale(1.05);
 }
 
+#detail-view {
+  display: none; /* hidden by default */
+  max-width: 100%; /* match gallery width */
+  padding-top: 200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #2d2d2d;
+  
+  font-family: 'Quicksand', sans-serif;
+  color: #333;
+}
+
+
+#back-to-gallery {
+  background-color: transparent;
+  border: none;
+  font-size: 1.1rem;
+  color: #1a73e8;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+#back-to-gallery:hover {
+  color: #155bb5;
+}
+
+#detail-image-container img#detail-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  padding-top: 100px;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+#detail-text h2#detail-title {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+#detail-text p#detail-media {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+#detail-text p#detail-statement {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+#detail-additional-images {
+  margin-top: 25px;
+  /* style your additional images container as needed */
+}
+
+
 .footer {
   background-color: #ffffff;  /* Dark background for footer */
   color: #4d4d4d;             /* White text color */

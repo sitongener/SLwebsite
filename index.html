@@ -47,11 +47,13 @@
       </a>
     </div>
   </div>
+  
 
   <div id="side-nav" class="side-nav">
  
     <!-- Content will be populated by JS -->
   </div>
+
 
   <!-- About Popup -->
   <div id="about-popup" class="popup-overlay">
@@ -82,23 +84,43 @@
     </div>
   </div>
 
+
   <!-- Main Pages -->
   <div class="pages">
-    
+
     <!-- 2D Section -->
     <section class="page" id="page-2d">
-      <!-- <div class="side-nav" id="side-nav-2d">
-          <ul>
-            <li onclick="filterGallery('2d', 'illustration')">Illustration</li>
-            <li onclick="filterGallery('2d', 'childrenbook')">Childrenbook</li>
-            <li onclick="filterGallery('2d', 'design')">Design</li>
-            <li onclick="filterGallery('2d', 'comics')">Comics</li>
-          </ul>
-        </div> -->
       <div class="content">
+        <!-- Detail view container -->
+<div id="detail-view" style="display:none; max-width: 900px; margin: 0 auto; padding: 20px;">
+  
+
+  <div id="detail-image-container">
+    <img id="detail-image" src="" alt="Detail view" style="max-width: 100%; height: auto; display: block; margin-bottom: 1rem;" />
+  </div>
+  <button id="back-to-gallery">← Back to Gallery</button>
+
+
+  <div id="detail-text">
+    <h2 id="detail-title"></h2>
+    <p id="detail-media"></p>
+    <p id="detail-statement"></p>
+  </div>
+  
+  <div id="detail-additional-images">
+    <!-- Optional additional detail images here -->
+  </div>
+</div>
         <main class="gallery-area" id="gallery-2d-section">
           <div class="gallery" id="gallery-2d">
-            <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746050322/starnight_rvkm2c.jpg" alt="Illustration" data-category="illustration" />
+            <img 
+            src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746050322/starnight_rvkm2c.jpg" 
+            alt="Illustration" 
+            data-category="illustration" 
+            data-title="Night" 
+            data-media="Digital Illustration, 2023" 
+            data-statement="A vibrant depiction of a starry night sky inspired by Van Gogh's style."
+          />
             <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746120976/%E4%BD%9B%E7%84%B0_tvktoo.jpg" alt="Childrenbook" data-category="illustration" />
             <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746121248/%E4%B9%A6%E5%BA%97_rhwyzd.jpg" alt="Design" data-category="illustration" />
             <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746121264/4536902B-6FE6-4FF3-B1CF-0714BF2399FA_lmddvw.jpg" alt="Comics" data-category="editorial" />
@@ -110,20 +132,13 @@
             <img src="your-2d-image4.jpg" alt="Comics" data-category="comics" />
             <img src="your-2d-image1.jpg" alt="Comics" data-category="comics" />
           </div>
+          
         </main>
       </div>
     </section>
 
     <!-- 3D Section -->
     <section class="page" id="page-3d">
-      <!-- <div class="side-nav" id="side-nav-3d">
-          <ul>
-            <li onclick="filterGallery('3d', 'animations')">Animations</li>
-            <li onclick="filterGallery('3d', 'games')">Games</li>
-            <li onclick="filterGallery('3d', 'vrar')">VR/AR</li>
-            <li onclick="filterGallery('3d', 'stills')">Stills</li>
-          </ul>
-        </div> -->
       <div class="content">
         <main class="gallery-area" id="gallery-3d-section">
           <div class="gallery" id="gallery-3d">
