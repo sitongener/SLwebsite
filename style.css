@@ -374,22 +374,24 @@ h1 {
 }
 
 #detail-view {
-  display: none; /* hidden by default */
-  max-width: 100%; /* match gallery width */
-  padding-top: 200px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #2d2d2d;
-  
-  font-family: 'Quicksand', sans-serif;
-  color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(255, 255, 255);
+  padding: 20px 20px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+  box-sizing: border-box;
 }
 
 
 #back-to-gallery {
   background-color: transparent;
   border: none;
-  font-size: 1.1rem;
+  font-size: 26px;
   color: #1a73e8;
   cursor: pointer;
   padding: 5px 10px;
@@ -400,14 +402,26 @@ h1 {
   color: #155bb5;
 }
 
+#detail-image-container{
+  display: flex;
+  gap: 20px;
+  padding-left: 30px;
+}
+
 #detail-image-container img#detail-image {
-  max-width: 100%;
-  height: auto;
+  max-width: 60%;
+  max-height: 870px;
   display: block;
-  padding-top: 100px;
+  padding-top: 30px;
   margin-bottom: 1rem;
-  border-radius: 6px;
+  
   object-fit: contain;
+}
+
+#detail-text {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
 }
 
 #detail-text h2#detail-title {
@@ -417,8 +431,8 @@ h1 {
 
 #detail-text p#detail-media {
   font-style: italic;
-  color: #666;
-  margin-bottom: 15px;
+  color: #ffffff;
+  margin-top: 15px;
   font-size: 1rem;
 }
 
@@ -428,8 +442,16 @@ h1 {
 }
 
 #detail-additional-images {
-  margin-top: 25px;
-  /* style your additional images container as needed */
+  display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+  gap: 50px;
+  padding: 30px;
+  margin-top: 50px;
+}
+
+#detail-additional-images img{
+  max-width: 80%;
 }
 
 

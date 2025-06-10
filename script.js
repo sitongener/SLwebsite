@@ -223,16 +223,24 @@ function openDetailView(imgElement) {
   detailImage.src = imgElement.src;
   detailImage.alt = imgElement.alt || 'Detail Image';
 
-  // You will want to store these as data attributes on the images:
   detailTitle.textContent = imgElement.dataset.title || 'Title missing';
   detailMedia.textContent = imgElement.dataset.media || '';
   detailStatement.textContent = imgElement.dataset.statement || '';
 
-  // Clear additional images area for now
-  detailAdditional.innerHTML = '';
-
-  // If you have more detail images, you can add them here dynamically (optional)
+  // ✨ Add additional detail images
+  detailAdditional.innerHTML = ''; // clear previous
+  const additional = imgElement.dataset.additional;
+  if (additional) {
+    const urls = additional.split(',');
+    urls.forEach(url => {
+      const extraImg = document.createElement('img');
+      extraImg.src = url.trim();
+      extraImg.alt = 'Additional image';
+      detailAdditional.appendChild(extraImg);
+    });
+  }
 }
+
 
 // Attach click listeners to all gallery images
 function setupGalleryClickListeners(section) {
@@ -248,6 +256,7 @@ function setupGalleryClickListeners(section) {
 backToGalleryBtn.addEventListener('click', () => {
   detailView.style.display = 'none';
   sideNav.style.display = 'block';
+  
 
   if (currentPage === '2d') {
     gallery2d.style.display = 'block';
@@ -256,6 +265,8 @@ backToGalleryBtn.addEventListener('click', () => {
     gallery3d.style.display = 'block';
     gallery2d.style.display = 'none';
   }
+
+  
 });
 
 // Call setup functions on page load and after gallery resets

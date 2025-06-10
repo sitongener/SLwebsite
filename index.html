@@ -91,25 +91,22 @@
     <!-- 2D Section -->
     <section class="page" id="page-2d">
       <div class="content">
+
         <!-- Detail view container -->
-<div id="detail-view" style="display:none; max-width: 900px; margin: 0 auto; padding: 20px;">
-  
-
+        <div id="detail-view">
+          <button id="back-to-gallery">← Back to Gallery</button>
   <div id="detail-image-container">
-    <img id="detail-image" src="" alt="Detail view" style="max-width: 100%; height: auto; display: block; margin-bottom: 1rem;" />
+    <img id="detail-image" src="" alt="Detail view" />
+    <div id="detail-text">
+      <h1 id="detail-title"></h1>
+      <p id="detail-media"></p>
+      <p id="detail-statement"></p>
+    </div>
   </div>
-  <button id="back-to-gallery">← Back to Gallery</button>
-
-
-  <div id="detail-text">
-    <h2 id="detail-title"></h2>
-    <p id="detail-media"></p>
-    <p id="detail-statement"></p>
-  </div>
-  
   <div id="detail-additional-images">
     <!-- Optional additional detail images here -->
   </div>
+
 </div>
         <main class="gallery-area" id="gallery-2d-section">
           <div class="gallery" id="gallery-2d">
@@ -120,8 +117,15 @@
             data-title="Night" 
             data-media="Digital Illustration, 2023" 
             data-statement="A vibrant depiction of a starry night sky inspired by Van Gogh's style."
+            data-additional="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746050322/starnight_rvkm2c.jpg, https://res.cloudinary.com/dka6d9mfk/image/upload/v1746050322/starnight_rvkm2c.jpg"
           />
-            <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746120976/%E4%BD%9B%E7%84%B0_tvktoo.jpg" alt="Childrenbook" data-category="illustration" />
+            <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746120976/%E4%BD%9B%E7%84%B0_tvktoo.jpg" alt="Childrenbook" 
+            data-category="illustration" 
+            data-title="Test" 
+            data-media="Digital Illustration, 2023" 
+            data-statement="A vibrant depiction of a starry night sky inspired by Van Gogh's style."
+            data-additional="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746050322/starnight_rvkm2c.jpg"
+             />
             <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746121248/%E4%B9%A6%E5%BA%97_rhwyzd.jpg" alt="Design" data-category="illustration" />
             <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746121264/4536902B-6FE6-4FF3-B1CF-0714BF2399FA_lmddvw.jpg" alt="Comics" data-category="editorial" />
             <img src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746121103/%E5%8F%B8%E8%8A%AC%E5%85%8B%E6%96%AF2_nhmyz8.png" alt="Comics" data-category="editorial" />
@@ -142,7 +146,15 @@
       <div class="content">
         <main class="gallery-area" id="gallery-3d-section">
           <div class="gallery" id="gallery-3d">
-            <img src="your-3d-image1.jpg" alt="Animation" data-category="animations" />
+            <img 
+            src="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746050322/starnight_rvkm2c.jpg" 
+            alt="Illustration" 
+            data-category="animation" 
+            data-title="Night" 
+            data-media="Digital Illustration, 2023" 
+            data-statement="A vibrant depiction of a starry night sky inspired by Van Gogh's style."
+            data-additional="https://res.cloudinary.com/dka6d9mfk/image/upload/v1746050322/starnight_rvkm2c.jpg, https://res.cloudinary.com/dka6d9mfk/image/upload/v1746050322/starnight_rvkm2c.jpg"
+          />
             <img src="your-3d-image2.jpg" alt="Games" data-category="games" />
             <img src="your-3d-image3.jpg" alt="VR/AR" data-category="vrar" />
             <img src="your-3d-image4.jpg" alt="Stills" data-category="stills" />
